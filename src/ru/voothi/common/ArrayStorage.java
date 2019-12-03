@@ -22,7 +22,11 @@ public class ArrayStorage {
     }
 
     static void delete(int index) {
-        System.arraycopy(arr, index + 1, arr, index, length - 1);
+        if (index == 0) {
+            System.arraycopy(arr, index + 1, arr, index, length - 1);
+        } else if (index > 0) {
+            System.arraycopy(arr, index + 1, arr, index, length - (index + 1));
+        }
     }
 
     static void fillVal(int[] arr) {
