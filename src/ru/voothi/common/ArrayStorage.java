@@ -3,39 +3,42 @@ package ru.voothi.common;
 import java.util.Arrays;
 
 public class ArrayStorage {
-    static int length;
     static int[] arr;
+    static int length;
 
-    static int[] initArr(int... vars) {
+    public static void main(String[] args) {
+        runTest();
+    }
+
+    static void runTest() {
+        fill(init(1, 2, 3, 4, 5));
+        print(arr);
+        delete(1);
+        print(arr);
+        clear(arr);
+        print(arr);
+    }
+
+    static int[] init(int... vars) {
         return vars;
     }
 
-    public static void main(String[] args) {
-        run();
-    }
-
-    static void run() {
-        fillVal(initArr(1, 2, 3, 0));
-        printArr(arr);
-        delete(1);
-        printArr(arr);
-    }
-
-    static void delete(int index) {
-        if (index == 0) {
-            System.arraycopy(arr, index + 1, arr, index, length - 1);
-        } else if (index > 0) {
-            System.arraycopy(arr, index + 1, arr, index, length - (index + 1));
-        }
-    }
-
-    static void fillVal(int[] arr) {
+    static void fill(int[] arr) {
         ArrayStorage.arr = arr;
         length = arr.length;
     }
 
-    static void printArr(int[] arr) {
+    static void print(int[] arr) {
         System.out.println(Arrays.toString(arr));
+    }
+
+    static void delete(int index) {
+        System.arraycopy(arr, index + 1, arr, index, length - (index + 1));
+        arr[length - 1] = 0;
+    }
+
+    static void clear(int[] arr) {
+        Arrays.fill(arr, 0);
     }
 }
 
