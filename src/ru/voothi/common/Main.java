@@ -1,6 +1,8 @@
 package ru.voothi.common;
 
 public class Main {
+    not present
+
     public static void main(String[] args) {
         //save AbstractArrayStorage
         String uuid = resume.getUuid();
@@ -12,19 +14,16 @@ public class Main {
         }
 
         //insertByIndex ArrayStorage
-        if (index == -1) {
-            storage[size] = resume;
-            size++;
-        } else {
-            System.out.println("Resume " + resume.getUuid() + " present");
-        }
 
         //insertByIndex SortedArrayStorage
-        if (index >= 0) {
+
+
+        present
+        int insert = -index - 1;
+        if (index !== -1 || index >= 0) {
             System.out.println("Resume " + resume.getUuid() + " present");
         } else {
-            int insert = -index - 1;
-            if (insert == size) {
+            if (insert == size || index == -1) {
                 storage[size] = resume;
                 size++;
             } else {
@@ -34,10 +33,4 @@ public class Main {
                 size++;
             }
         }
-
-        present
-        index !== -1 || index >= 0
-            System.out.println("Resume " + resume.getUuid() + " present");
-
-
-        not present
+    }
