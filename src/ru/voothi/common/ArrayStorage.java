@@ -1,12 +1,14 @@
 package ru.voothi.common;
 
+import ru.voothi.common.javaops.TestString;
+
 import java.util.Arrays;
 
 public class ArrayStorage {
     static int[] arr;
     static int length;
 
-    public static void main(String[] args) {
+    public static void main(TestString[] args) {
         runTest();
     }
 

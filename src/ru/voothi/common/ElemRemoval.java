@@ -1,10 +1,12 @@
 package ru.voothi.common;
 
+import ru.voothi.common.javaops.TestString;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
 class ElemRemoval {
-    public static void main(String[] args) {
+    public static void main(TestString[] args) {
         Scanner in = new Scanner(System.in);
         int[] intArr = {1, 2, 5, 12, 7, 3, 8};
 
