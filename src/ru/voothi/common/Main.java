@@ -1,26 +1,17 @@
 package ru.voothi.common;
 
-import ru.voothi.common.javaops.TestString;
-
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//        int arr[] = {1, 2, 3, 4};
-//        int n = 4;
-//        int arr[] = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            arr[i] = i + 1;
-//        }
-        String names[] = new String[4];
-        names[0] = "Алена";
-        names[1] = "Ирина";
-        names[2] = "Вася";
-        names[3] = "Алина";
-
-        int rand = (int) (Math.random()*4);
-
-        System.out.println(rand);
-        System.out.println(names[rand]);
+        List list = new ArrayList(15);
+        list.add("Алена");
+        list.add("Ирина");
+        list.add("Вася");
+        list.add("Алина");
+        int size = list.size();
+        int rand = (int) (Math.random() * size);
+        System.out.println(list.get(rand));
     }
 }
