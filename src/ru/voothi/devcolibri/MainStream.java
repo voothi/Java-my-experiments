@@ -19,12 +19,8 @@ public class MainStream {
 
         strings
                 .stream()
+                .sorted()
                 .filter(s -> s.startsWith("W"))
-                .forEach(new Consumer<String>() {
-                    @Override
-                    public void accept(String x) {
-                        System.out.println(x);
-                    }
-                });
+                .forEach(System.out::println);
     }
 }
