@@ -13,20 +13,20 @@ public class MainArray {
         List<String> list = new ArrayList<>();
         Map<String, String> map = new HashMap<>();
 
-        list.add("Ирина Аветисян");
-        list.add("Алена Кондратенко");
-        list.add("Сергей Зеленцов");
-        list.add("Алина Коновалова");
-        list.add("Анжела Близнюк");
-        list.add("Василий Носов");
-        list.add("Костя Емельянов");
-        list.add("Денис Новиков");
-        list.add("Вячеслав Пупенков");
+        list.add("Ирина");
+        list.add("Юлия");
+        list.add("Сергей");
+        list.add("Алина");
+        list.add("Анжела");
+        list.add("Василий");
+        list.add("Костя");
+        list.add("Вячеслав");
         list.add("Ирина Аленина");
-        list.add("Арман Мамян");
-        list.add("Борис Мишарин");
+        list.add("Арман");
+        list.add("Борис");
         list.add("Виталий");
-        list.add("Антон Скоромыслов");
+        list.add("Антон");
+        list.add("Насиба");
 
         while (!list.isEmpty()) {
             map.put(list.remove(getRandom(0, list.size() - 1)), list.remove(getRandom(0, list.size() - 1)));

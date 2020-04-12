@@ -1,4 +1,4 @@
-package ru.voothi.common.Comporator;
+package ru.voothi.common.comporator;
 
 class House {
     int area;

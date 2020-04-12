@@ -1,6 +1,4 @@
-package ru.voothi.common.Comporator;
-
-import java.util.Random;
+package ru.voothi.common.comporator;
 
 //public static class Message {
 //    private String message;

@@ -1,9 +1,4 @@
-package ru.voothi.common.Comporator;
-
-import java.util.Random;
-import java.util.ArrayList;
-import java.util.List;
-
+package ru.voothi.common.comporator;
 
 
 //public class MainComparator {

@@ -1,4 +1,4 @@
-package ru.voothi.common.Comporator;
+package ru.voothi.common.comporator;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -28,7 +28,6 @@ class Test {
         for (House h : myHouseArrayList) {
             System.out.println(h);
         }
-
     }
 }
 
