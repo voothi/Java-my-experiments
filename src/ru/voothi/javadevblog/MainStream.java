@@ -1,6 +1,7 @@
 package ru.voothi.javadevblog;
 
 import java.util.Arrays;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -31,5 +32,14 @@ public class MainStream {
                 .collect(Collectors.averagingInt(p -> p.age));
 
         System.out.println(averageAge);     // 19.5
+
+        IntSummaryStatistics ageSummary =
+                persons
+                        .stream()
+                        .collect(Collectors.summarizingInt(p -> p.age));
+
+        System.out.println(ageSummary);
+// Результат выполнения:
+// IntSummaryStatistics{count=4, sum=78, min=12, average=19.500000, max=23}
     }
 }
