@@ -1,13 +1,13 @@
 package ru.voothi.javadevblog;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.stream.Stream;
 
 public class MainStream {
     public static void main(String[] args) {
-        Arrays.stream(new int[] {1, 2, 3})
-                .map(n -> 2 * n + 1)
-                .average()
+        Stream.of("c1", "c2", "c3")
+                .map(s -> s.substring(1))
+                .mapToInt(Integer::parseInt)
+                .max()
                 .ifPresent(System.out::println);
     }
 }
