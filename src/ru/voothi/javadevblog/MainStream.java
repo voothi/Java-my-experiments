@@ -2,6 +2,7 @@ package ru.voothi.javadevblog;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class MainStream {
@@ -14,12 +15,21 @@ public class MainStream {
                         new Person("Ira", 23),
                         new Person("Vitia", 12));
 
-        List<Person> filtered =
-                persons
-                        .stream()
-                        .filter(p -> p.name.startsWith("I"))
-                        .collect(Collectors.toList());
+        Map<Integer, List<Person>> personsByAge = persons
+                .stream()
+                .collect(Collectors.groupingBy(p -> p.age));
 
-        System.out.println(filtered);    // [Igor, Ira]
+        personsByAge
+                .forEach((age, p) -> System.out.format("age %s: %s\n", age, p));
+
+// age 20: [Andrew]
+// age 23: [Igor, Ira]
+// age 12: [Vitia]
+
+        Double averageAge = persons
+                .stream()
+                .collect(Collectors.averagingInt(p -> p.age));
+
+        System.out.println(averageAge);     // 19.5
     }
 }
