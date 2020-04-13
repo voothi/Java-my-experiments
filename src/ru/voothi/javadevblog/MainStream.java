@@ -8,6 +8,7 @@ public class MainStream {
                 .filter(s -> {
                     System.out.println("Фильтр: " + s);
                     return true;
-                });
+                })
+                .forEach(s -> System.out.println("Печать с использованием forEach: " + s));
     }
 }
