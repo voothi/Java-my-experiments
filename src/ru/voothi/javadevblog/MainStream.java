@@ -1,10 +1,11 @@
 package ru.voothi.javadevblog;
 
 import java.util.Arrays;
-import java.util.IntSummaryStatistics;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.StringJoiner;
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 
 public class MainStream {
     public static void main(String[] args) {
@@ -16,30 +17,17 @@ public class MainStream {
                         new Person("Ira", 23),
                         new Person("Vitia", 12));
 
-        Map<Integer, List<Person>> personsByAge = persons
+        Collector<Person, StringJoiner, String> personNameCollector =
+                Collector.of(
+                        () -> new StringJoiner(" | "),          // supplier
+                        (j, p) -> j.add(p.name.toUpperCase()),  // accumulator
+                        (j1, j2) -> j1.merge(j2),               // combiner
+                        StringJoiner::toString);                // finisher
+
+        String names = persons
                 .stream()
-                .collect(Collectors.groupingBy(p -> p.age));
+                .collect(personNameCollector);
 
-        personsByAge
-                .forEach((age, p) -> System.out.format("age %s: %s\n", age, p));
-
-// age 20: [Andrew]
-// age 23: [Igor, Ira]
-// age 12: [Vitia]
-
-        Double averageAge = persons
-                .stream()
-                .collect(Collectors.averagingInt(p -> p.age));
-
-        System.out.println(averageAge);     // 19.5
-
-        IntSummaryStatistics ageSummary =
-                persons
-                        .stream()
-                        .collect(Collectors.summarizingInt(p -> p.age));
-
-        System.out.println(ageSummary);
-// Результат выполнения:
-// IntSummaryStatistics{count=4, sum=78, min=12, average=19.500000, max=23}
+        System.out.println(names);  // ANDREW | IGOR | IRA | VITIA
     }
 }
