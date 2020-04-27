@@ -4,7 +4,8 @@ Refactoring.guru
 - https://refactoring.guru/ru/design-patterns/catalog
 
 ### Base Основные
-- Delegation, Делегирование 
+- Delegation, Делегирование
+- MVC 
 
 ### Creational Порождающие
 Отвечают за удобное и безопасное создание новых объектов или даже целых семейств объектов.
@@ -40,3 +41,18 @@ Refactoring.guru
 - Strategy, Стратегия
 - Template Method, Шаблонный метод
 - Visitor, Посетитель
+
+## Материалы
+- ru/voothi/javapro/patterns  
+https://www.youtube.com/playlist?list=PLwcDaxeEINactCC4mly7RQon5juIpH-Q3  
+- ru/voothi/proselyte/patterns  
+https://www.youtube.com/playlist?list=PLlsMRoVt5sTPgGbinwOVnaF1mxNeLAD7P  
+- ru/voothi/refactoring/patterns  
+
+- ru/voothi/epam/patterns/factorymethod  
+
+- Уроки Java
+https://www.youtube.com/user/husivm/search?query=Patterns
+
+- Паттерны проектирования в Java [GeekBrains]
+https://www.youtube.com/watch?v=0Y0KIq69LGg
