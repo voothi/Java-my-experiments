@@ -1,27 +1,21 @@
 package ru.voothi.annimon.stream;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class MainStream {
     public static void main(String[] args) {
-        final Map<String, Integer> map = new HashMap();
-        map.put("А", 23);
-        map.put("В", 12);
-        map.put("Б", 17);
-        map.put("Д", 1);
-        map.put("Г", 13);
+        String[] strings = {"A", "C", "B"};
 
-        map.keySet().stream()
+        final List<String> list = Arrays.stream(strings)
+                .filter(s -> !s.equals("A"))
                 .sorted()
-                .limit(3)
-                .forEach(System.out::println);
+                .collect(Collectors.toList());
 
-        Stream.of("b", "a", "c").
-                sorted()
-                .forEach(System.out::println);
-        ;
-
+        System.out.println(list);
     }
 }
