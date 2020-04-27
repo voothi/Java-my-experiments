@@ -1,8 +1,8 @@
 package ru.voothi.annimon.stream;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class MainStream {
     public static void main(String[] args) {
@@ -18,11 +18,10 @@ public class MainStream {
                 .limit(3)
                 .forEach(System.out::println);
 
-        Arrays.asList("test", "test1").stream()
-                .limit(1)
-                .filter(s -> s.equals("test"))
-                .map(s -> s + '!')
-                .sorted()
+        Stream.of("b", "a", "c").
+                sorted()
                 .forEach(System.out::println);
+        ;
+
     }
 }
