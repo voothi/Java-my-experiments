@@ -1,51 +1,37 @@
 package ru.voothi.annimon.stream;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.*;
+import java.util.stream.Collector;
 
 public class MainStream {
     public static void main(String[] args) {
+        partitioningByUniqueness();
 
-        Map<Integer, List<String>> map1 = Stream.of(
-                "ab", "c", "def", "gh", "ijk", "l", "mnop")
-                .collect(Collectors.groupingBy(String::length));
-        map1.entrySet().forEach(System.out::println);
-// 1=[c, l]
-// 2=[ab, gh]
-// 3=[def, ijk]
-// 4=[mnop]
+    }
 
-        Map<Integer, String> map2 = Stream.of(
-                "ab", "c", "def", "gh", "ijk", "l", "mnop")
-                .collect(Collectors.groupingBy(
-                        String::length,
-                        Collectors.mapping(
-                                String::toUpperCase,
-                                Collectors.joining())
-                ));
-        map2.entrySet().forEach(System.out::println);
-// 1=CL
-// 2=ABGH
-// 3=DEFIJK
-// 4=MNOP
-
-        Map<Integer, List<String>> map3 = Stream.of(
-                "ab", "c", "def", "gh", "ijk", "l", "mnop")
-                .collect(Collectors.groupingBy(
-                        String::length,
-                        LinkedHashMap::new,
-                        Collectors.mapping(
-                                String::toUpperCase,
-                                Collectors.toList())
-                ));
-        map3.entrySet().forEach(System.out::println);
-// 2=[AB, GH]
-// 1=[C, L]
-// 3=[DEF, IJK]
-// 4=[MNOP]
-
+    public static <T> Collector<T, ?, Map<Boolean, List<T>>> partitioningByUniqueness() {
+        return Collector.<T, Map.Entry<List<T>, Set<T>>, Map<Boolean, List<T>>>of(
+                () -> new AbstractMap.SimpleImmutableEntry<>(
+                        new ArrayList<T>(), new LinkedHashSet<>()),
+                (c, e) -> {
+                    if (!c.getValue().add(e)) {
+                        c.getKey().add(e);
+                    }
+                },
+                (c1, c2) -> {
+                    c1.getKey().addAll(c2.getKey());
+                    for (T e : c2.getValue()) {
+                        if (!c1.getValue().add(e)) {
+                            c1.getKey().add(e);
+                        }
+                    }
+                    return c1;
+                },
+                c -> {
+                    Map<Boolean, List<T>> result = new HashMap<>(2);
+                    result.put(Boolean.FALSE, c.getKey());
+                    result.put(Boolean.TRUE, new ArrayList<>(c.getValue()));
+                    return result;
+                });
     }
 }
