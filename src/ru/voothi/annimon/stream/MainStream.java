@@ -1,21 +1,19 @@
 package ru.voothi.annimon.stream;
 
-import java.util.Comparator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class MainStream {
     public static void main(String[] args) {
 
-        IntStream.concat(
-                IntStream.range(0, 100000000),
-                IntStream.of(-1, -2))
-                .sorted()
-                .limit(3)
+        Stream.of(2, 1, 8, 1, 3, 2)
+                .distinct()
                 .forEach(System.out::println);
 
-        Stream.of(120, 410, 85, 32, 314, 12)
-                .sorted(Comparator.naturalOrder())
+        IntStream.concat(
+                IntStream.range(2, 5),
+                IntStream.range(0, 4))
+                .distinct()
                 .forEach(System.out::println);
 
     }
