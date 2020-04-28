@@ -1,20 +1,16 @@
 package ru.voothi.annimon.stream;
 
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class MainStream {
     public static void main(String[] args) {
 
-        Stream.of(2, 1, 8, 1, 3, 2)
+        Stream.of(0, 3, 0, 0, 5)
+                .peek(x -> System.out.format("before distinct: %d%n", x))
                 .distinct()
-                .forEach(System.out::println);
-
-        IntStream.concat(
-                IntStream.range(2, 5),
-                IntStream.range(0, 4))
-                .distinct()
-                .forEach(System.out::println);
+                .peek(x -> System.out.format("after distinct: %d%n", x))
+                .map(x -> x * x)
+                .forEach(x -> System.out.format("after map: %d%n", x));
 
     }
 }
