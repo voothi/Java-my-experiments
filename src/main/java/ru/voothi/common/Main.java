@@ -1,16 +1,17 @@
 package ru.voothi.common;
 
-import java.util.*;
-
-public class Main {
-    public static void changeIt(String value) {
-        value = new String("Hello");
-        System.out.println(value);
-    }
-
+class Main {
     public static void main(String[] args) {
-        String test = new String("test");
-        changeIt(test);
-        System.out.println(test);
+        Hello hello = new Hello();
+        hello.iValue = 20;
+        hello.changeIt(hello);
+        System.out.println(hello.iValue);
+    }
+}
+
+class Hello {
+    public int iValue;
+    public void changeIt(Hello value) {
+        value.iValue = 10;
     }
 }
